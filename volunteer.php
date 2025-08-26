@@ -1,4 +1,7 @@
+
 <?php
+include 'db_connect.php'; // Ensure database connection is included
+
 if (isset($_POST['submit'])) {
     $name = $_POST['name'];
     $email = $_POST['email'];

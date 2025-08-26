@@ -1,11 +1,12 @@
 <?php
-$host = "localhost";
-$username = "root";     // Change if needed
-$password = "";         // Change if needed
-$database = "suyash_database";
+$host = "trolley.proxy.rlwy.net";
+$username = "root";
+$password = "wNyVnY0FHWCsHpzQSjOmimbdfzTOILw";  // full password
+$database = "railway";
+$port = 32181;  // ✅ Railway port
 
 // Create connection
-$conn = new mysqli($host, $username, $password, $database);
+$conn = new mysqli($host, $username, $password, $database, $port);
 
 // Check connection
 if ($conn->connect_error) {

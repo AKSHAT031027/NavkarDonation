@@ -1,9 +1,10 @@
+
 <?php
 $host = "trolley.proxy.rlwy.net";
-$username = "root";
-$password = "wNyVnY0FHWCsHpzQSjOmimbdfzTOILw";  // full password
+$port = 32181;
+$username = "root";  // From Railway
+$password = "WnYVnYOFHWHCsHpzQSjOMimbdfzTOILW"; // Exact password from Railway
 $database = "railway";
-$port = 32181;  // ✅ Railway port
 
 // Create connection
 $conn = new mysqli($host, $username, $password, $database, $port);

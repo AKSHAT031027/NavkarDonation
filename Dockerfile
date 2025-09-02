@@ -1,10 +1,10 @@
 # Use official PHP image with Apache
 FROM php:8.2-apache
 
-# Enable mysqli extension (needed for MySQL)
-RUN docker-php-ext-install mysqli
+# Install PostgreSQL extensions for PDO
+RUN docker-php-ext-install pdo pdo_pgsql pgsql
 
-# Copy your website files into Apache's default web root
+# Copy website files
 COPY . /var/www/html/
 
 # Set permissions (optional)

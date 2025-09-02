@@ -1,9 +1,9 @@
 <?php
-$host = "your-postgres-host";   // e.g. dpg-xxxxx.render.com
+$host = "dpg-d2rg27adbo4c73d9ro2g-a";   // e.g. dpg-xxxxx.render.com
 $port = 5432;                   // PostgreSQL default
-$dbname = "your-database-name";
-$user = "your-username";
-$password = "your-password";
+$dbname = "navkardatabase";
+$user = "navkardatabase_user";
+$password = "e7mDVwBkOpvert2W2UE9OPYv14rLFijU";
 
 try {
     $dsn = "pgsql:host=$host;port=$port;dbname=$dbname";
@@ -15,3 +15,4 @@ try {
     die("Connection failed: " . $e->getMessage());
 }
 ?>
+

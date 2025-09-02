@@ -2,7 +2,7 @@
 $host = "mysql.railway.internal";
 $port = 3306;
 $user = "root";
-$password = "WnYVnYOFHWCsHpzQSjOMimbdfzTOIlW";
+$password = "WnYVnYOFHWC sHpzQSjOMi mbdfzTOI1W";
 $dbname = "railway";
 
 $conn = new mysqli($host, $user, $password, $dbname, $port);

@@ -1,11 +1,11 @@
 <?php
-$sever = "localhost";
-$username ="root";
-$password="";
-$dbname="suyash_database";
+$host = "localhost";
+$port = "5432"; // Default PostgreSQL port
+$dbname = "suyash_database";
+$user = "postgres"; // Change to your PostgreSQL username
+$password = "your_password"; // Change to your PostgreSQL password
 
-
-$con = mysqli_connect($sever, $username, $password, $dbname);
+$con = pg_connect("host=$host port=$port dbname=$dbname user=$user password=$password");
 
 if (!$con) {
     echo "Database connection failed";
@@ -13,26 +13,25 @@ if (!$con) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  
-    $donation = isset($_POST['donation']) ? $_POST['donation'] : '';
-    $name = isset($_POST['name']) ? $_POST['name'] : '';
-    $email = isset($_POST['email']) ? $_POST['email'] : '';
-    $phone = isset($_POST['phone']) ? $_POST['phone'] : '';
-    $dob = isset($_POST['dob']) ? $_POST['dob'] : '';
-    $gender = isset($_POST['gender']) ? $_POST['gender'] : '';
-    $fname = isset($_POST['fname']) ? $_POST['fname'] : '';
-    $fphone = isset($_POST['fphone']) ? $_POST['fphone'] : '';
 
+    $donation = $_POST['donation'] ?? '';
+    $name = $_POST['name'] ?? '';
+    $email = $_POST['email'] ?? '';
+    $phone = $_POST['phone'] ?? '';
+    $dob = $_POST['dob'] ?? '';
+    $gender = $_POST['gender'] ?? '';
+    $fname = $_POST['fname'] ?? '';
+    $fphone = $_POST['fphone'] ?? '';
 
-    $sql = "INSERT INTO information(donation, name, email, phone, dob, gender, fname, fphone) 
-            VALUES ('$donation', '$name', '$email', '$phone', '$dob', '$gender', '$fname', '$fphone')";
+    $sql = "INSERT INTO information (donation, name, email, phone, dob, gender, fname, fphone)
+            VALUES ($1, $2, $3, $4, $5, $6, $7, $8)";
 
-    $result = mysqli_query($con, $sql);
+    $result = pg_query_params($con, $sql, [$donation, $name, $email, $phone, $dob, $gender, $fname, $fphone]);
 
     if ($result) {
         echo "Data submitted successfully.";
     } else {
-        echo "Database error: " . mysqli_error($con);
+        echo "Database error: " . pg_last_error($con);
     }
 } else {
     echo "Form not submitted.";

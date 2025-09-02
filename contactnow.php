@@ -1,36 +1,37 @@
 <?php
-$host = "localhost";
-$username = "root"; // Change if needed
-$password = "";     // Change if you have one
-$dbname = "suyash_database";
+$host = "your-postgres-host";
+$port = 5432;
+$dbname = "your-database-name";
+$username = "your-username";
+$password = "your-password";
 
-// Create connection
-$conn = new mysqli($host, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+try {
+    $dsn = "pgsql:host=$host;port=$port;dbname=$dbname";
+    $conn = new PDO($dsn, $username, $password, [
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+    ]);
+} catch (PDOException $e) {
+    die("Connection failed: " . $e->getMessage());
 }
 
 // Get form data safely
-$name = $_POST['name'];
-$email = $_POST['email'];
-$phone = $_POST['phone'];
-$message = $_POST['message'];
+$name    = $_POST['name']    ?? '';
+$email   = $_POST['email']   ?? '';
+$phone   = $_POST['phone']   ?? '';
+$message = $_POST['message'] ?? '';
 
-// Insert into database
-$sql = "INSERT INTO contact_messages (name, email, phone, message) 
-        VALUES (?, ?, ?, ?)";
-
-$stmt = $conn->prepare($sql);
-$stmt->bind_param("ssss", $name, $email, $phone, $message);
-
-if ($stmt->execute()) {
+try {
+    $sql = "INSERT INTO contact_messages (name, email, phone, message) 
+            VALUES (:name, :email, :phone, :message)";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute([
+        ':name'    => $name,
+        ':email'   => $email,
+        ':phone'   => $phone,
+        ':message' => $message
+    ]);
     echo "Message submitted successfully!";
-} else {
-    echo "Error: " . $stmt->error;
+} catch (PDOException $e) {
+    echo "Error: " . $e->getMessage();
 }
-
-$stmt->close();
-$conn->close();
 ?>

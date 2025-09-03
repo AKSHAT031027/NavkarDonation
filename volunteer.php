@@ -1,15 +1,12 @@
-
 <?php
-include 'db_connect.php'; // This already creates $conn as PDO
+include 'db_connect.php'; // This creates $conn as PDO
 
 if (isset($_POST['submit'])) {
     try {
-        // Use prepared statements to prevent SQL injection
-        $sql = "INSERT INTO volunteer 
-                (name, email, phone_no, dob, gender, father_name, father_contact_no)
-                VALUES (:name, :email, :phone_no, :dob, :gender, :father_name, :father_contact_no)";
+        $stmt = $conn->prepare("INSERT INTO volunteer 
+            (name, email, phone_no, dob, gender, father_name, father_contact_no)
+            VALUES (:name, :email, :phone_no, :dob, :gender, :father_name, :father_contact_no)");
 
-        $stmt = $conn->prepare($sql);
         $stmt->execute([
             ':name' => $_POST['name'],
             ':email' => $_POST['email'],
@@ -21,18 +18,19 @@ if (isset($_POST['submit'])) {
         ]);
 
         echo "<p>Volunteer registered successfully!</p>";
+
     } catch (PDOException $e) {
         echo "<p>Error: " . $e->getMessage() . "</p>";
     }
 }
 
-echo "<h3>Registered Volunteers</h3>";
-
+// Fetch all volunteers
 try {
     $stmt = $conn->query("SELECT * FROM volunteer ORDER BY id DESC");
-    $rows = $stmt->fetchAll();
+    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     if (count($rows) > 0) {
+        echo "<h3>Registered Volunteers</h3>";
         echo "<table border='1' cellpadding='10'>
                 <tr>
                     <th>ID</th><th>Name</th><th>Email</th><th>Phone</th><th>DOB</th>

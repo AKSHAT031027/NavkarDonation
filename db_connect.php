@@ -1,3 +1,4 @@
+
 <?php
 try {
     // Get DATABASE_URL from environment (Render provides this)
@@ -23,5 +24,3 @@ try {
     die("Connection failed: " . $e->getMessage());
 }
 ?>
-
-

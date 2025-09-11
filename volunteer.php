@@ -1,5 +1,7 @@
 <?php
-// --- Form handling must be before any HTML output ---
+include('include/header.php');
+
+// PostgreSQL connection
 $host = "dpg-d2rg27adbo4c73d9ro2g-a.oregon-postgres.render.com";
 $dbname = "navkardatabase";
 $user = "navkardatabase_user";
@@ -13,6 +15,10 @@ try {
     die("Connection failed: " . $e->getMessage());
 }
 
+// Initialize success message
+$successMsg = "";
+
+// Handle form submission
 if (isset($_POST['submit'])) {
     $sql = "INSERT INTO volunteer (name, email, phone_no, dob, gender, father_name, father_contact_no)
             VALUES (:name, :email, :phone_no, :dob, :gender, :father_name, :father_contact_no)";
@@ -27,50 +33,25 @@ if (isset($_POST['submit'])) {
         ':father_contact_no' => $_POST['father_contact_no']
     ]);
 
-    // Redirect to prevent duplicate submission and hide table
-    header("Location: volunteer.php");
-    exit();
+    // Set success message
+    $successMsg = "Volunteer registered successfully!";
 }
-
-// Include header after form handling
-include('include/header.php');
 ?>
 
 <!-- Your HTML & CSS content -->
 <style>
-body {
-    margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(to bottom, #e6e6e6 0%, #fde7a4 100%);
-    color: #333;
-    line-height: 1.6;
-}
-/* ... keep all your existing CSS ... */
+body { margin: 0; font-family: 'Segoe UI', sans-serif; background: linear-gradient(to bottom, #e6e6e6, #fde7a4); color:#333; }
+.form-section { background: #fff; padding: 30px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin-bottom:50px; }
+.success-msg { color: green; font-weight: bold; margin-bottom: 15px; text-align: center; }
 </style>
 
 <body>
 <div style="position: relative; overflow: hidden; text-align: center; color: white; padding: 100px 20px;">
-    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('assets/img/volunteerpage.jpg'); background-size: cover; background-position: center; filter: blur(1px); z-index: 0;"></div>
-    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.4); z-index:1;"></div>
-    <div style="position: relative; z-index:2;">
-        <h1 style="font-size: 50px; font-weight: bolder; font-family:'Courier New', Courier, monospace;">
-            <span style="color:rgb(240,241,240)"> Volunteer Application Registration </span>
-        </h1>
-        <p style="font-size:18px; margin:20px 0; font-family:inherit;">
-            "Your greatest wealth is the impact you create.<br> Become a volunteer — because every act of kindness shapes a better world."
-        </p>
-        <br>
-        <a href="#registration" style="background-color:#fbfbfa; color:rgb(11,0,0); padding:12px 25px; text-decoration:none; border-radius:5px; margin-right:10px;">
-            Registration Form
-        </a>
-        <a href="#" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" style="background-color:#fbf9f9; color:#333; padding:12px 25px; text-decoration:none; border-radius:5px;">
-            Categories
-        </a>
-        <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#registration">Food Donator</a></li>
-            <li><a class="dropdown-item" href="#registration">Helper</a></li>
-            <li><a class="dropdown-item" href="#registration">Doctor/Nurse</a></li>
-        </ul>
+    <div style="position: absolute; top:0; left:0; width:100%; height:100%; background-image:url('assets/img/volunteerpage.jpg'); background-size:cover; filter:blur(1px); z-index:0;"></div>
+    <div style="position:absolute; top:0; left:0; width:100%; height:100%; background-color: rgba(0,0,0,0.4); z-index:1;"></div>
+    <div style="position:relative; z-index:2;">
+        <h1 style="font-size:50px; font-weight:bolder;">Volunteer Application Registration</h1>
+        <p>"Your greatest wealth is the impact you create.<br>Become a volunteer — because every act of kindness shapes a better world."</p>
     </div>
 </div>
 <br><br>
@@ -81,6 +62,12 @@ body {
             <h2 class="form-title"><span>Fill The</span> Volunteering Form</h2>
         </div>
         <div class="col-lg-8 offset-lg-2 form-section">
+
+            <!-- Show success message -->
+            <?php if($successMsg != ""): ?>
+                <div class="success-msg"><?= htmlspecialchars($successMsg) ?></div>
+            <?php endif; ?>
+
             <form method="POST" action="">
                 <div class="mb-3">
                     <label>Name:</label>
@@ -123,6 +110,7 @@ body {
                 </div>
                 <button type="submit" class="btn btn-primary mt-3 w-100" name="submit">Submit</button>
             </form>
+
         </div>
     </div>
 </div>
@@ -132,3 +120,4 @@ include('include/footer.php');
 ?>
 </body>
 </html>
+

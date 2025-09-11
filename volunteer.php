@@ -35,10 +35,6 @@ if (isset($_POST['submit'])) {
     header("Location: volunteer.php");
     exit();
 }
-
-// Fetch volunteers for display
-$stmt = $conn->query("SELECT * FROM volunteer ORDER BY id DESC");
-$volunteers = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!-- Your HTML content -->
@@ -47,9 +43,6 @@ body { font-family: 'Segoe UI', sans-serif; background: linear-gradient(to botto
 h1, h2 { text-align: center; }
 .container { width: 90%; margin: auto; }
 .form-section { background: #fff; padding: 30px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin-bottom:50px; }
-.volunteers-container { display:flex; flex-wrap:wrap; gap:20px; justify-content:center; margin-top:30px; }
-.volunteer-card { background:#fff; padding:20px; border-radius:10px; width:220px; box-shadow:0 4px 10px rgba(0,0,0,0.1); text-align:center; }
-.volunteer-card img { width:100%; height:150px; object-fit:cover; border-radius:10px; margin-bottom:10px; }
 </style>
 
 <body>
@@ -102,20 +95,6 @@ h1, h2 { text-align: center; }
             </div>
             <button type="submit" name="submit" class="btn btn-primary mt-3 w-100">Submit</button>
         </form>
-    </div>
-
-    <h2>Registered Volunteers</h2>
-    <div class="volunteers-container">
-        <?php foreach($volunteers as $v): ?>
-        <div class="volunteer-card">
-            <img src="https://via.placeholder.com/220x150?text=Photo" alt="Volunteer Photo">
-            <h3><?= htmlspecialchars($v['name']) ?></h3>
-            <p>Email: <?= htmlspecialchars($v['email']) ?></p>
-            <p>Phone: <?= htmlspecialchars($v['phone_no']) ?></p>
-            <p>DOB: <?= htmlspecialchars($v['dob']) ?></p>
-            <p>Gender: <?= htmlspecialchars($v['gender']) ?></p>
-        </div>
-        <?php endforeach; ?>
     </div>
 </div>
 

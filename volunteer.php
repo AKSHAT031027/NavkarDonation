@@ -3,7 +3,7 @@
 $host = "dpg-d2rg27adbo4c73d9ro2g-a.oregon-postgres.render.com";
 $dbname = "navkardatabase";
 $user = "navkardatabase_user";
-$password = "YOUR_PASSWORD"; // replace with actual password
+$password = "e7mDVwBkOpvert2W2UE9OPYv14rLFijU"; // replace with actual password
 $port = "5432";
 
 try {
@@ -85,3 +85,4 @@ $volunteers = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <?php endif; ?>
 </body>
 </html>
+

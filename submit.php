@@ -51,7 +51,7 @@ submit {
     <div class="card p-3 mb-4">
         <p><strong>Donation Type:</strong> <?= htmlspecialchars($donation) ?></p>
         <div class="mb-3 row">
-            <p class="col-md-6 mb-3"><strong>Full Name:</strong> <?= htmlspecialchars($name) ?></p>
+            <p class="col-md-6 mb-3"><strong>Name:</strong> <?= htmlspecialchars($name) ?></p>
             <p class="col-md-6 mb-3"><strong>Phone:</strong> <?= htmlspecialchars($phone) ?></p>
         </div>
         <div class="mb-3 row">
@@ -191,5 +191,6 @@ include('include/footer.php');
 ?>
 
 </body>
+
 
 </html>

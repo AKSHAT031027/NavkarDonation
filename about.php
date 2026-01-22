@@ -172,9 +172,9 @@
                 <div class="card text-center shadow-sm h-100 ">
                     <div class="card-body">
                         <div class="mb-3">
-                            <i class="bi bi-geo-alt fs-1 text-warning"></i>
+                            <i class="bi  fs-1 text-warning"></i>
                         </div>
-                        <p alt="Address" class=" fa-map-marker "></p>
+                        <p alt="Address" class="fa fa-map-marker "></p>
                         <h5 class="card-title fw-bold font-family-rabic">Address Line</h5>
 
                         <p class="card-text text-muted mb-0">S-7, Aayojan Apartments,</p>
@@ -190,9 +190,9 @@
                 <div class="card text-center shadow-sm h-100">
                     <div class="card-body">
                         <div class="mb-3">
-                            <i class=" bi bi-envelope fs-1 text-warning"></i>
+                            <i class=" bi fs-1 text-warning"></i>
                         </div>
-                        <p class="fa-envelope"></p>
+                        <p class="fa fa-envelope"></p>
                         <h5 class="card-title fw-bold font-family-rabic">Email Address</h5>
                         <p class="card-text text-muted">info@paathshalatrust.org</p>
                     </div>
@@ -204,9 +204,9 @@
                 <div class="card text-center shadow-sm h-100">
                     <div class="card-body">
                         <div class="mb-3">
-                            <i class="bi bi-telephone fs-1 text-warning"></i>
+                            <i class="bi fs-1 text-warning"></i>
                         </div>
-                        <p class=" fa-phone"></p>
+                        <p class=" fa fa-phone"></p>
                         <h5 class="card-title fw-bold font-family-rabic">Phone Number</h5>
                         <p class="card-text text-muted mb-0">(+91) 97822 09683</p>
                         <p class="card-text text-muted">91663 71582</p>
@@ -311,3 +311,4 @@
 include("include/footer.php");
 
 ?>
+

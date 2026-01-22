@@ -202,7 +202,7 @@
         <div class="actions">
             <button>💙 Give Love</button>
             <button>🧒 Save the Children</button>
-            <button>🛟 Rescue</button>
+            <button>⛑️ Rescue</button>
             <button>🤝 Become A Volunteer</button>
         </div>
 
@@ -214,4 +214,5 @@
 include('include/footer.php');
 ?>
 </body>
+
 </html>

@@ -124,21 +124,21 @@
         <h1>A Donation for Underprivileged children</h1>
         <div class="heart-line">💖</div>
         <p class="subheading">
-            Paathshala (= ‘school’ in Hindi) Trust was founded in 2019 and incorporated in 1956 under Public Trust Act.
+            Navkar Donation Trust was founded in 2019 and incorporated in 1956 under Public Trust Act.
         </p>
 
         <div class="content">
             <p>
-                <span class="bold">Paathshala trust</span> is a Jaipur-based NGO working on child rights and sustainable
+                <span class="bold">Navkar Donation trust</span> is a Jaipur-based NGO working on child rights and sustainable
                 development goals.
-                Paathshala Trust was founded by International Children peace prize winner
+                Navkar Donation Trust was founded by International Children peace prize winner
                 <span class="bold highlight">‘Om Prakash’</span> with his wife <span
                     class="bold highlight">‘Mohini’</span> and alumni of AIESEC
                 <span class="bold highlight">‘Pritam Singh’</span> with the vision of creating a society where no child
                 is denied access to education and
                 forced to work in exploitative jobs that are often underpaid and in dangerous conditions. Whether it’s
                 giving a good education
-                or ensuring that poor children have a better life. Paathshala Trust caters to the specific requirements
+                or ensuring that poor children have a better life. Navkar Donation Trust caters to the specific requirements
                 of children, providing
                 them with a good start, opportunities to learn, and safety from violence.
             </p>
@@ -146,7 +146,7 @@
 
         <div class="content">
             <p>
-                Paathshala is a <span class="bold">non-profit organisation</span> founded in <span
+                Navkar Donation is a <span class="bold">non-profit organisation</span> founded in <span
                     class="bold">2019</span> and incorporated under the
                 <span class="bold">Public Trust Act of 1956</span>. Om Prakash Gujar, a former child labourer, an
                 <span class="bold">International Children’s Peace 2006 awardee</span>, and a Bachpan Bachao Andolan
@@ -174,7 +174,7 @@
                         <div class="mb-3">
                             <i class="bi bi-geo-alt fs-1 text-warning"></i>
                         </div>
-                        <p alt="Address" class="fa  fa-map-marker "></p>
+                        <p alt="Address" class=" fa-map-marker "></p>
                         <h5 class="card-title fw-bold font-family-rabic">Address Line</h5>
 
                         <p class="card-text text-muted mb-0">S-7, Aayojan Apartments,</p>
@@ -190,9 +190,9 @@
                 <div class="card text-center shadow-sm h-100">
                     <div class="card-body">
                         <div class="mb-3">
-                            <i class="bi bi-envelope fs-1 text-warning"></i>
+                            <i class=" bi bi-envelope fs-1 text-warning"></i>
                         </div>
-                        <p class="fa fa-envelope"></p>
+                        <p class="fa-envelope"></p>
                         <h5 class="card-title fw-bold font-family-rabic">Email Address</h5>
                         <p class="card-text text-muted">info@paathshalatrust.org</p>
                     </div>
@@ -206,7 +206,7 @@
                         <div class="mb-3">
                             <i class="bi bi-telephone fs-1 text-warning"></i>
                         </div>
-                        <p class="fa fa-phone"></p>
+                        <p class=" fa-phone"></p>
                         <h5 class="card-title fw-bold font-family-rabic">Phone Number</h5>
                         <p class="card-text text-muted mb-0">(+91) 97822 09683</p>
                         <p class="card-text text-muted">91663 71582</p>
@@ -309,4 +309,5 @@
 
 <?php
 include("include/footer.php");
+
 ?>
